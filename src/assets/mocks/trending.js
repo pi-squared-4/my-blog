@@ -30,10 +30,11 @@ export default[
         image: 'neuron.jpg',
     },
     {
-        title: 'Software Engineer Salary in 2020', 
+        title: 'React VS Vue', 
         date: moment().format('MMMM DD, YYYY'),
         categories: ['Tech Culture'], 
         link: "#",
-        image: 'money.jpg',
+        image: 'reactVsVue.jpg',
     },
+    
 ]

@@ -1,27 +1,29 @@
 import React from 'react';
-import money from './money.png';
+import {categoryColors} from './styles';
+// import money from './money.png';
 // import images from './images';
 
 export default function MasonryPost({post, tagsOnTop}){
-
-//      function importAll(r) {
-//     let images = {};
-//     r.keys().map((item, index) => { images[item.replace('./', '')] = r(item); });
-//     return images;
-// }
-
-//     const images = importAll(require.context('./images', false, /^jpg$/));
-
-    // <img src={images['0.png']} />
-
-    console.log(images[`${post.title}`]);
-    const imgURL = (`./images/${post.image}`);
-    const bgstyle =  {backgroundImage : `url("${imgURL}")` };
+    const  windowWidth = window.innerWidth;
     
+
+
+    const imageBackground =  {backgroundImage : `url("${require(`../../assets/images/${post.image}`).default}")` };
+    const style = windowWidth > 900 ?  {...imageBackground, ...post.style} : imageBackground;
+
     return (
-        <a className="masonry-post overlay" style={bgstyle} href={post.link}>
-            <div className="image-text">
+        <a className="masonry-post overlay" style={style} href={post.link}>
+            <div className="image-text" style={{justifyContent: tagsOnTop ? 'space-between' : 'flex-end'}}>
+                <div className="tags-container">
+                    {post.categories.map((tag, ind) =>
+                        <span key={ind} className="tag" style={{backgroundColor:categoryColors[tag]}}>
+                            {tag.toUpperCase()}
+                        </span>
+                    )};
+
+                </div>
                 <div>
+
                     <h2 className="image-title">{post.title}</h2>
                     <span className="image-date">{post.date}</span>
                     {/* <img src={money} alt="TMKC" /> */}
