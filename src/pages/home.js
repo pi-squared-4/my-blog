@@ -31,7 +31,7 @@ const featuredConfig = {
 const mergeStyle = function (posts , config){
     posts.forEach((post, index) => {
         post.style = config[index]
-        post.author = 'pi Squared'
+        post.author = ' Pi Squared'
         post.description = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.';
 
     })

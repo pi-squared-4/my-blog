@@ -7,8 +7,7 @@ import {TagRow} from './';
 export default function MasonryPost({post, tagsOnTop}){
     const  windowWidth = window.innerWidth;
     
-
-
+    
     const imageBackground =  {backgroundImage : `url("${require(`../../assets/images/${post.image}`).default}")` };
     const style = windowWidth > 900 ?  {...imageBackground, ...post.style} : imageBackground;
 
