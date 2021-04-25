@@ -15,7 +15,7 @@ fs.readdir(
     ),
     'utf-8',
     (err, files) => {
-        if(err) return console.log(err)
+        if(err) throw new Error(err)
         return promise.each(files, (fileName) => {
             return new Promise((resolve, reject) => {
                 fs.readFile(
@@ -28,15 +28,14 @@ fs.readdir(
                         if (err) reject(err)
                         return knex.raw(replaceAll(sql, '{}', db))
                         .then(resolve)
-                        .catch((err) => {console.log(err)})
+                        .catch((err) => {throw new Error(err)})
                     }
                 )
             })
-
         })
         .then(() => console.log('Migrations have run successfully.'))
         .catch(err => {
-            console.log(err)
+            throw new Error(err)
         })
     }
 )

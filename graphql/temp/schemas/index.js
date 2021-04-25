@@ -1,3 +1,4 @@
+  
 const postsSchema = require('./posts')
 
 const resolvers = [

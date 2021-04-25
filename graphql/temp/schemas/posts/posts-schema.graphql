@@ -1,0 +1,24 @@
+type Query {
+    getPostsByType(type: String): [Post]!
+    getPostByCategory(category_id: Int): [Post]!
+}
+ 
+
+type Post{
+    id: Int,
+    title: String, 
+    updatedAt: String
+    likes: String
+    comments: [Comment]
+    categories: [String]!
+    author: String
+    description: String
+    image: String
+}
+
+type Comment {
+    id: Int
+    post_id : Int
+    author: String
+    comment: String
+}
